@@ -8,23 +8,26 @@ class Character:
     def attack(self, object):
         if self.HP > 0:
             object.HP -= self.ATK
+        else:
+            print("攻撃を与えられません")
+        if object.HP <= 0:
+            object.HP = -1
 
     def heal(self, object):
-        if self.HP < 100:
+        if object.HP < 100:
             object.HP += self.HEAL
-        else:
-            print("HPが満タンです")
-        if self.HP >= 100:
+        if object.HP >= 100:
             object.HP = 100
-            print("HPが満タンです")
 
 
 class Player(Character):
     def __init__(self, name):
         super().__init__(name)
+        self.ATK = 10
+        self.HEAL = 20
 
 
 class Enemy(Character):
     def __init__(self, name):
         super().__init__(name)
-        self.HP = 100
+        self.HP = 50
