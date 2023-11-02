@@ -5,19 +5,17 @@ class Character:
         self.HEAL = 20
         self.name = name
 
-    def attack(self, object):
+    def attack(self, target):
         if self.HP > 0:
-            object.HP -= self.ATK
-        else:
-            print("攻撃を与えられません")
-        if object.HP <= 0:
-            object.HP = -1
+            target.HP -= self.ATK
+        if target.HP <= 0:
+            target.HP = -1
 
-    def heal(self, object):
-        if object.HP < 100:
-            object.HP += self.HEAL
-        if object.HP >= 100:
-            object.HP = 100
+    def heal(self, target):
+        if target.HP < 100:
+            target.HP += self.HEAL
+        if target.HP >= 100:
+            target.HP = 100
 
 
 class Player(Character):
