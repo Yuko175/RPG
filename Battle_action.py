@@ -43,7 +43,8 @@ def battle(character_list, player_list, enemy_list, main_player_list, sub_player
     if not player_list:
         return "敵の勝ち！プレーヤーの負け"
     if not enemy_list:
-        print(f"あなたのスコアは、{score_print(turn_count)}")
+        score = score_print(turn_count)
+        print(f"あなたのスコアは、{score}")
         return "プレーヤーの勝ち！敵の負け"
 
 
@@ -85,7 +86,7 @@ def battle_main_player_ATK(character, character_list, enemy_list, main_player_mo
             if target_enemy_name.HP <= 0:
                 enemy_list.remove(target_enemy_name)
             select = False
-        elif target_enemy_num == 4:
+        elif target_enemy_num == num + 1:
             return "2"
         else:
             print("無効なターゲット番号です。正しい番号を選択してください。\n")
