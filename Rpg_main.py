@@ -23,6 +23,7 @@ def main():
     sub_player_list: list = []
     enemy_list: list = []
     main_player_name: str = input("名前を入力してください：")
+    use_SP: bool = False
 
     # セッティング
     set_main_player_name(
@@ -35,7 +36,12 @@ def main():
     print("\nバトル開始！")
     result_print(character_list)
     battle_result = battle(
-        character_list, player_list, enemy_list, main_player_list, sub_player_list
+        character_list,
+        player_list,
+        enemy_list,
+        main_player_list,
+        sub_player_list,
+        use_SP,
     )
     print(battle_result)
 
